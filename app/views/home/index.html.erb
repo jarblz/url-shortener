@@ -1,0 +1,33 @@
+<div class="container">
+  <%= form_for @url, html: {class: 'form-horizontal'} do |f| %>
+    <div class="field">
+      <%= f.label :original_url %><br />
+      <%= f.text_field :original_url, autofocus: true, class: "form-control" %>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+function searchArtists(filterValue) {
+  $.ajax({
+    type: 'GET',
+    dataType: 'json',
+    url: ``,
+    success: function(data) {
+      populateResults(data);
+    }
+  });
+
+}
+
+function populateResults(data){
+  $('.heading').text(`Results (${data.length})`);
+  html = "";
+  $.each(data, function (key,val) {
+    html += ``;
+  });
+  $('.complete').html(html);
+}
+
+</script>

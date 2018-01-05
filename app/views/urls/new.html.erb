@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="field-holder">
+    <h3>Enter your URL below:</h3>
+    <%= form_for @url, html: {class: 'form-horizontal'} do |f| %>
+      <div class="field">
+        <%= f.text_field :original_url, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Shorten!", class: "btn shorten" %>
+      </div>
+    <% end %>
+  </div>
+</div>

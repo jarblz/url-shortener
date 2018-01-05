@@ -1,0 +1,41 @@
+<div class="container">
+<div class="field-holder">
+  <div class="copied">Copied!</div>
+  <h3>Your URL:</h3>
+  <div class="input-group">
+    <input type="text" class="form-control" id="resultUrl" value="<%= redirect_url(@url.id)%>" readonly>
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" id="clipboard">Copy to Clipboard!</button>
+    </span>
+  </div><!-- /input-group -->
+</div>
+<div class="field-holder">
+  <h3 class="">URL Stats:</h3>
+  <table class="table table-dark">
+    <thead>
+      <tr><th scope="col"># of times unshortened</th></tr>
+    </thead>
+    <tbody>
+      <tr><td scope="row"> <%= @url.hits %> </td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<script type="text/javascript">
+  $('#clipboard').click(function(){
+    copyClipboard();
+  })
+
+  function copyClipboard() {
+    copyText = document.querySelector("#resultUrl");
+    copyText.select();
+    document.execCommand("Copy");
+
+    flashCopied()
+  }
+
+  function flashCopied() {
+    $(".copied").slideDown().delay(1400).slideUp()
+  }
+</script>
